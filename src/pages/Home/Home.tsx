@@ -1,5 +1,5 @@
 import { BringCharacters } from "../../services/apiCalls";
-import { CharactersFetched } from "../../interfaces";
+import { DataFetched } from "../../interfaces";
 import { useEffect, useState } from "react";
 import "./Home.css";
 
@@ -10,7 +10,7 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     const bringData = async () => {
-      const fetched: CharactersFetched = await BringCharacters();
+      const fetched: DataFetched = await BringCharacters();
 
       if (fetched.success) {
         console.log(fetched, "hola soy fetched");
@@ -33,7 +33,11 @@ export const Home: React.FC = () => {
       ) : (
         <div>
           {characters.map((person) => {
-            return <div key={person.id}>{person.name}</div>;
+
+            if(person.name.includes("Aqua")){
+
+                return <div key={person.id}>{person.name}</div>;
+            }
           })}
         </div>
       )}

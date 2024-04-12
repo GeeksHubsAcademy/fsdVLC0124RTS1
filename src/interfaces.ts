@@ -1,5 +1,5 @@
 
-export interface CharactersFetched {
+export interface DataFetched {
     message: string,
     data: any[],
     success: boolean
@@ -23,3 +23,15 @@ export interface CharactersData {
     characters: any[]
 }
 
+export interface LoginData {
+    email: string,
+    password: string
+}
+
+export interface CustomInputProps {
+    type: string,
+    name: string,
+    placeholder: string,
+    value: string | undefined,
+    onChange: (value: React.ChangeEvent<HTMLInputElement>) => void;
+}
